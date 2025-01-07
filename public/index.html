@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f5e6d3;
+    font-family: 'Georgia', serif;
+    background-image: linear-gradient(to bottom right, #f5e6d3, #e6c9a8);
+}
+
+.calculator-container {
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 20px rgba(139, 69, 19, 0.3),
+                -8px -8px 20px rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    background: #fff8dc;
+    border: 2px solid #8b4513;
+    padding: 10px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.display {
+    padding: 25px;
+    background: linear-gradient(145deg, #8b4513, #654321);
+    color: #fff8dc;
+    font-size: 2.2rem;
+    text-align: right;
+    border-radius: 10px;
+    border: 3px solid #654321;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 15px;
+    background: #fff8dc;
+    border-radius: 10px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 1.5rem;
+    background: #faebd7;
+    border: 2px solid #8b4513;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    color: #8b4513;
+    font-family: 'Georgia', serif;
+    transition: all 0.3s ease;
+    box-shadow: 3px 3px 6px rgba(139, 69, 19, 0.2);
+}
+
+.btn:hover {
+    background: #8b4513;
+    color: #faebd7;
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px rgba(139, 69, 19, 0.3);
+}
+
+.action {
+    background: #8b4513;
+    color: #faebd7;
+    font-weight: bold;
+    border: 2px solid #654321;
+}
+
+.action:hover {
+    background: #654321;
+    border-color: #8b4513;
+}
+
+/* Nouveau style pour centrer le bouton Plugin */
+.plugin-upload {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.upload-btn {
+    background: #d2691e;
+    color: #fff8dc;
+    font-weight: bold;
+    border: 2px solid #8b4513;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    width: auto;
+    margin: 0;
+}
+
+.upload-btn:hover {
+    background: #8b4513;
+    color: #fff8dc;
+}
+
+.plugin-input {
+    display: none;
+}
+
+#dynamic-operations {
+    grid-column: 3;
+}
+    </style>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display" id="display">0</div>
+            <div class="buttons">
+                <!-- Number buttons -->
+                <button class="btn number" data-value="7">7</button>
+                <button class="btn number" data-value="8">8</button>
+                <button class="btn number" data-value="9">9</button>
+                <button class="btn number" data-value="4">4</button>
+                <button class="btn number" data-value="5">5</button>
+                <button class="btn number" data-value="6">6</button>
+                <button class="btn number" data-value="1">1</button>
+                <button class="btn number" data-value="2">2</button>
+                <button class="btn number" data-value="3">3</button>
+                <button class="btn number" data-value="0">0</button>
+
+                <!-- Equal button -->
+                <button class="btn action" id="equal">=</button>
+
+                <!-- Dynamic operation buttons -->
+                <div id="dynamic-operations"></div>
+                <div class="plugin-upload">
+                    <label for="plugin-input" class="btn upload-btn">+/-</label>
+                    <input type="file" id="plugin-input" class="plugin-input" hidden />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
